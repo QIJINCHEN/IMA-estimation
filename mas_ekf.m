@@ -93,7 +93,6 @@ for idx = 2:size(data_ains,1)
         R = diag((cfg.kf.sf_R_pos*data_ains(idx,13:15)).^2);
         [x, P, pdf] = Kalman_update(x, P, inno, Hm, R);
         if pdf ~= 0
-            errordlg('矩阵P_pred为非正定，不可逆！');
             return
         end
              
